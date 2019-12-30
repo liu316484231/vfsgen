@@ -284,6 +284,10 @@ var {{.VariableName}} = func() http.FileSystem {
 {{define "Trailer"}}
 type vfsgen۰FS map[string]interface{}
 
+func GetFs() vfsgen۰FS {
+	return BigString.(vfsgen۰FS)
+}
+
 func (fs vfsgen۰FS) Open(path string) (http.File, error) {
 	path = pathpkg.Clean("/" + path)
 	f, ok := fs[path]
